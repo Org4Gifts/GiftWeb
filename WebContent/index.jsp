@@ -9,11 +9,11 @@
 <title>Untitled Document</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--        <link rel="stylesheet" type="text/css" href="/project/query.css">-->
-<link rel="stylesheet" type="text/css" href="/project/css/style.css"
+<link rel="stylesheet" type="text/css" href="css/style.css"
 	media="screen and (min-width:700px)">
-<link rel="stylesheet" type="text/css" href="/project/css/tablet.css"
+<link rel="stylesheet" type="text/css" href="css/tablet.css"
 	media="screen and (max-width:699px)">
-<link rel="stylesheet" type="text/css" href="/project/css/moblie.css"
+<link rel="stylesheet" type="text/css" href="css/moblie.css"
 	media="screen and (max-width:480px)">
 </head>
 
@@ -28,19 +28,19 @@
 				</banner>
 				<nav>
 					<ul>
-						<li><a href="index.html">Return</a></li>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.jsp">Return</a></li>
+						<li><a href="index.jsp">Home</a></li>
 						<li><a href="http://www.google.com.tw">google</a></li>
 
 					</ul>
 				</nav>
 				<aside>
 					<ul>
-						<li><a href="search.html">查詢系統</a></li>
-						<li><a href="login.html">登入</a></li>
-						<li><a href="application.html">申/調系統</a></li>
-						<li><a href="signed.html">簽核系統</a></li>
-						<li><a href="management.html">管理系統</a></li>
+						<li><a href="search.jsp">查詢系統</a></li>
+						<li><a href="login.jsp">登入</a></li>
+						<li><a href="application.jsp">申/調系統</a></li>
+						<li><a href="signed.jsp">簽核系統</a></li>
+						<li><a href="management.jsp">管理系統</a></li>
 					</ul>
 					<figure>
 						<img src="images/Ofish.png" alt="" width="90%">

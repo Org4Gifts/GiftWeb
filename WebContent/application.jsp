@@ -49,7 +49,7 @@
 				</aside>
 				<article>
 					<section>
-						<h1>Search</h1>
+						<h1>application</h1>
 					</section>
 				</article>
 				<footer>Java2016&copy;Project</footer>
