@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -28,10 +29,9 @@
 				</banner>
 				<nav>
 					<ul>
-						<li><a href="index.jsp">首頁</a></li>
-						<li><a href="msg.jsp">留言板</a></li>
 						<li><a href="http://www.google.com.tw">google</a></li>
-
+						<li><a href="#">留言板</a></li>
+						<li><a href="index.jsp">首頁</a></li>
 					</ul>
 				</nav>
 				<aside>
@@ -48,51 +48,56 @@
 					</figure>
 				</aside>
 				<article>
-					<section>
-						<%							
-							Cookie[] cookies = request.getCookies();
-							if (cookies != null) {
-								for (Cookie cook : cookies) {
-									System.out.println(cook.getName());
-									if (cook.getName().equals("userMain")) {
-										//response.sendRedirect();
-										//request.setAttribute("queryMsg", "query");
-										cook.setMaxAge(0);
-										response.addCookie(cook);
-										request.getRequestDispatcher("index.jsp").forward(request, response);
-									}
-								}
+					<%
+						ArrayList<String[]> query = (ArrayList<String[]>) request.getSession().getAttribute("query");
+						String msg_key = request.getParameter("detail");
+						String[] strs = null;
+						for (String[] str : query) {
+							if (str[0].equals(msg_key)) {
+								strs = str;
+								break;
 							}
-						%>
-						
-						<br>
-						<form action="Main" method="post">
+						}
+						System.out.print(strs.toString());
+					%>
+					<section>
+						<form action="msg.jsp" method="post">
 							<table width="300">
-							<tr><td colspan="2" align="center"><h1>使用者登入</h1></td></tr>
 								<tr>
-									<td>使用者名稱</td>
-									<td><input type="text" name="user" value="odise" /></td>
+									<td colspan="2" align="center"><h1><%=strs[2]%>的留言內容
+										</h1></td>
 								</tr>
 								<tr>
-									<td>密碼</td>
-									<td><input type="password" name="pass" value="116025" /></td>
+									<td>標題</td>
+									<td><%=strs[1]%></td>
+								</tr>
+								<tr>
+									<td>名字</td>
+									<td><%=strs[2]%></td>
+								</tr>
+								<tr>
+									<td>電話</td>
+									<td><%=strs[3]%></td>
+								</tr>
+								<tr>
+									<td>電子郵件</td>
+									<td><%=strs[4]%></td>
+								</tr>
+								<tr>
+									<td>日期</td>
+									<td><%=strs[6]%></td>
+								</tr>
+								<tr>
+									<td>內容</td>
+									<td><textarea type="text" name="area" rows="5"><%=strs[5]%></textarea></td>
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="submit" name="login" value="登入" /> <input
-										type="submit" name="forget" value="忘記密碼" /></td>
+									<td><input type="submit" name="cancel" value="回前頁" /></td>
 								</tr>
 							</table>
-							<input type="hidden" name="msg" value="" />
+							<input type="hidden" name="msg_id" value="<%=strs[0]%>" />
 						</form>
-						<%
-							String fail = (String) request.getAttribute("fail");
-							fail = fail == null ? "" : fail;
-						%>
-						<h1><%=fail%>
-							<br>${fail}
-						</h1>
-
 					</section>
 				</article>
 				<footer>Java2016&copy;Project</footer>

@@ -28,10 +28,9 @@
 				</banner>
 				<nav>
 					<ul>
-						<li><a href="index.jsp">Return</a></li>
-						<li><a href="index.jsp">Home</a></li>
 						<li><a href="http://www.google.com.tw">google</a></li>
-
+						<li><a id="link" href="msg.jsp">留言板</a></li>
+						<li><a href="#">首頁</a></li>
 					</ul>
 				</nav>
 				<aside>
@@ -72,8 +71,22 @@
 				<footer>Java2016&copy;Project</footer>
 			</div>
 		</section>
+		<form action="Main" method="post" name="hidden">
+			<input type="hidden" name="query" value="query" />
+		</form>
 	</div>
+	<script type="text/javascript">
+		var oLink = document.getElementById('link');
+		oLink.addEventListener('click', clicks, false);
 
+		function clicks() {
+			//            alert("Warning");
+			var from1 = document.getElementById("hidden");
+			from1.submit();
+			document.hidden.submit;
+		}
+	</script>
 </body>
+
 
 </html>

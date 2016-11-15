@@ -28,10 +28,9 @@
 				</banner>
 				<nav>
 					<ul>
-						<li><a href="index.jsp">首頁</a></li>
-						<li><a href="msg.jsp">留言板</a></li>
 						<li><a href="http://www.google.com.tw">google</a></li>
-
+						<li><a href="msg.jsp">留言板</a></li>
+						<li><a href="index.jsp">首頁</a></li>
 					</ul>
 				</nav>
 				<aside>
@@ -49,50 +48,43 @@
 				</aside>
 				<article>
 					<section>
-						<%							
-							Cookie[] cookies = request.getCookies();
-							if (cookies != null) {
-								for (Cookie cook : cookies) {
-									System.out.println(cook.getName());
-									if (cook.getName().equals("userMain")) {
-										//response.sendRedirect();
-										//request.setAttribute("queryMsg", "query");
-										cook.setMaxAge(0);
-										response.addCookie(cook);
-										request.getRequestDispatcher("index.jsp").forward(request, response);
-									}
-								}
-							}
-						%>
-						
-						<br>
+
 						<form action="Main" method="post">
 							<table width="300">
-							<tr><td colspan="2" align="center"><h1>使用者登入</h1></td></tr>
 								<tr>
-									<td>使用者名稱</td>
-									<td><input type="text" name="user" value="odise" /></td>
+									<td colspan="2" align="center"><h1>聯絡我們</h1></td>
 								</tr>
 								<tr>
-									<td>密碼</td>
-									<td><input type="password" name="pass" value="116025" /></td>
+									<td>標題</td>
+									<td><input type="text" name="subject" /></td>
+								</tr>
+								<tr>
+									<td>名字</td>
+									<td><input type="text" name="name" /></td>
+								</tr>
+								<tr>
+									<td>電話</td>
+									<td><input type="text" name="phone" /></td>
+								</tr>
+
+								<tr>
+									<td>電子郵件</td>
+									<td><input type="text" name="email" /></td>
+								</tr>
+								<tr>
+									<td>內容</td>
+									<td><textarea type="text" name="area" rows="5"></textarea></td>
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="submit" name="login" value="登入" /> <input
-										type="submit" name="forget" value="忘記密碼" /></td>
+									<td><input type="submit" name="insert" value="留言" /> <input
+										type="reset" name="reset" value="重設" />
+										<input
+										type="submit" name="cancel" value="取消" /></td>
 								</tr>
 							</table>
 							<input type="hidden" name="msg" value="" />
 						</form>
-						<%
-							String fail = (String) request.getAttribute("fail");
-							fail = fail == null ? "" : fail;
-						%>
-						<h1><%=fail%>
-							<br>${fail}
-						</h1>
-
 					</section>
 				</article>
 				<footer>Java2016&copy;Project</footer>

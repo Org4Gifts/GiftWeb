@@ -81,7 +81,7 @@ aside ul li a:link, aside ul li a:visited {
 	display: block;
 	width: 90%;
 	height: 30px;
-	font-size:24px;
+	font-size:20px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #666;
@@ -151,6 +151,7 @@ article section p:hover {
 	font-weight: bold;
 	color: deepskyblue;
 }
+
 
 footer {
 	clear: both;
